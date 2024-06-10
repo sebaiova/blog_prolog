@@ -97,7 +97,7 @@ textarea {
     height: 100px;
 }
 
-form.comment-form th, td {
+form.comment-form th, form.comment-form td {
     text-align: left;
 }
 
