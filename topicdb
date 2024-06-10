@@ -40,3 +40,50 @@ assert(comment_nextid(12)).
 retract(comment_count(1,2)).
 assert(comment_count(1,3)).
 assert(comment(11,1,aaa,'Me')).
+retract(comment(0,0,'Great introduction! Looking forward to ',user1)).
+assert(comment(0,0,'Great introduction! Looking for',user1)).
+retract(comment(0,0,'Great introduction! Looking for',user1)).
+assert(comment(0,0,'Great introduction! Looking for',user1)).
+retract(comment(0,0,'Great introduction! Looking for',user1)).
+assert(comment(0,0,'Great introduction! Looking for',user1)).
+retract(comment(0,0,'Great introduction! Looking for',user1)).
+assert(comment(0,0,'Great introduction! Looki',user1)).
+retract(comment_nextid(12)).
+assert(comment_nextid(13)).
+retract(comment_count(0,1)).
+assert(comment_count(0,2)).
+assert(comment(12,0,asd,'Me')).
+retract(topic(3,'OpenCL Platforms and Devices',admin,'An OpenCL platform consists of a host and one or more OpenCL devices. Devices are divided into compute units, which are further divided into processing elements.')).
+retract(topic(2,'OpenCL Kernels',admin,'Kernels are the functions that run on OpenCL devices. They are written in OpenCL C and are executed by multiple work-items in parallel.')).
+assert(topic(2,'OpenCL Ke',admin,'Kernels are the functio\r\nen in OpenCL C and are executed by multiple work-items in parallel.')).
+retract(comment(3,2,'Can you provide an example of a simple OpenCL kernel?',user4)).
+retract(comment_count(2,2)).
+assert(comment_count(2,1)).
+retract(comment(4,2,'How do you handle synchronization within a kernel?',user5)).
+retract(comment_count(2,1)).
+assert(comment_count(2,0)).
+retract(comment_nextid(13)).
+assert(comment_nextid(14)).
+retract(comment_count(4,0)).
+assert(comment_count(4,1)).
+assert(comment(13,4,'ki,','Me')).
+retract(comment_nextid(14)).
+assert(comment_nextid(15)).
+retract(comment_count(4,1)).
+assert(comment_count(4,2)).
+assert(comment(14,4,asd,'Me')).
+retract(comment(14,4,asd,'Me')).
+retract(comment_count(4,2)).
+assert(comment_count(4,1)).
+retract(comment(13,4,'ki,','Me')).
+assert(comment(13,4,'ki,aa','Me')).
+retract(topic(4,'OpenCL Buffers and Images',admin,'Buffers and images are the primary data structures used to transfer data between the host and OpenCL devices. Buffers are linear arrays, while images are multi-dimensional data structures.')).
+assert(topic(4,'OpenCL Buffers and Images',admin,'Buffers and images are')).
+retract(comment(11,1,aaa,'Me')).
+assert(comment(11,1,aaalll,'Me')).
+retract(comment(2,1,'Can you provide more details on local memory?',user3)).
+retract(comment_count(1,3)).
+assert(comment_count(1,2)).
+retract(comment(6,5,'Can you explain the difference between in-order and out-of-order command queues?',user7)).
+retract(comment_count(5,1)).
+assert(comment_count(5,0)).

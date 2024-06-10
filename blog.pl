@@ -1,4 +1,4 @@
-- use_module(library(http/html_write)).
+:- use_module(library(http/html_write)).
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/thread_httpd)).
 :- use_module(library(http/html_head)).
@@ -32,7 +32,7 @@ body_root -->
         \topic_box(0, "", "", "Post"),
         table(
             [
-             tr([th('Topics'), th('Replies'), th('Author'), th('Last post')]), 
+             tr([th('Topics'), th('Replies'), th('Author')]), 
              \topics_rows]
             )
         ]).
@@ -46,8 +46,8 @@ body_topic(ID_TOPIC) -->
     html([
         table([
             tr([th(colspan=2, Title)]),
-            tr([td(Author), td(span([label("Title: "), Title]))]),
-            tr([td(''), td(Text)])]
+            tr([td(Author), td(rowspan=2, Text)]),
+            tr([td(img(src=""))])]
         ),
         form([action="/post", method="POST"],  
 
@@ -75,7 +75,7 @@ comment_box(ID_TOPIC) -->
                 tr([td(colspan=2,[
                     input([type="hidden", name="id_topic", value=ID_TOPIC]),
                     input([type="hidden", name="command", value="PUSH"]),
-                    button(type="submit", "Post"),
+                    button(type="submit", "Confirm"),
                     button([type="button", onclick="document.getElementById('comment-box').classList.add('collapsed')"], "Cancel")])])
             ])
         )
@@ -101,7 +101,7 @@ topic_box(ID_TOPIC, TITLE, TEXT, COMMAND) -->
 
 topics_rows -->
     {
-        findall(tr([td(a(href="/topic"+[id_topic=ID], Title)), td(COMMENT_COUNT), td(Author), td('-')]), 
+        findall(tr([td(a(href="/topic"+[id_topic=ID], Title)), td(COMMENT_COUNT), td(Author)]), 
                 (
                     topic(ID, Title, Author, _), 
                     comment_count(ID, COMMENT_COUNT)
@@ -129,9 +129,9 @@ comment_rows(ID_TOPIC) -->
                         input([type="hidden", name="command", value="EDIT"]),
                         input([type="hidden", name="id_comment", value=ID_COMMENT]),
                         input([type="hidden", name="id_topic", value=ID_TOPIC]),
-                        tr(th(colspan=2, r)),
+                        tr(th(colspan=2, "Editing comment...")),
                         tr([td(img(src='')), td(textarea([name="text", required=true, placeholder="Write something..."], Text))]),
-                        tr([td(colspan=2, [button([type="commit"], "Edit"), button([type="button", onclick=COLLAPSE], "Cancel")])])
+                        tr([td(colspan=2, [button([type="commit"], "Confirm"), button([type="button", onclick=COLLAPSE], "Cancel")])])
                         ]))
                 ]),  
                 comment(ID_COMMENT, ID_TOPIC, Text, Author),
