@@ -87,3 +87,21 @@ assert(comment_count(1,2)).
 retract(comment(6,5,'Can you explain the difference between in-order and out-of-order command queues?',user7)).
 retract(comment_count(5,1)).
 assert(comment_count(5,0)).
+retract(comment(11,1,aaalll,'Me')).
+retract(comment_count(1,2)).
+assert(comment_count(1,1)).
+retract(comment(7,6,'How do you handle event synchronization in complex OpenCL programs?',user8)).
+retract(comment_count(6,2)).
+assert(comment_count(6,1)).
+retract(topic(5,'OpenCL Command Queues',admin,'Command queues are used to control the execution of kernels and the transfer of data. Commands are issued to a command queue and executed in-order or out-of-order.')).
+retract(comment(8,6,'Can you provide an example of event usage?',user9)).
+retract(comment_count(6,1)).
+assert(comment_count(6,0)).
+retract(comment_nextid(15)).
+assert(comment_nextid(16)).
+retract(comment_count(6,0)).
+assert(comment_count(6,1)).
+assert(comment(15,6,uii,'Me')).
+retract(topic(6,'OpenCL Event Management',admin,'Events in OpenCL are used to synchronize operations in command queues. They help manage dependencies between commands and ensure correct execution order.')).
+retract(comment(12,0,asd,'Me')).
+assert(comment(12,0,asf,'Me')).
