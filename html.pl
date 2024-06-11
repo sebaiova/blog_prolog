@@ -32,8 +32,8 @@ body_topic(ID_TOPIC) -->
     html([
         table([
             tr([th(colspan=2, Title)]),
-            tr([td(Author), td(rowspan=2, Text)]),
-            tr([td(img(src=""))])]
+            tr([td(style="text-align:center", Author), td(rowspan=2, Text)]),
+            tr([td([style="white-space:nowrap; width:1%"], img(src=""))])]
         ),
         form([action="/post", method="POST"],  
 
